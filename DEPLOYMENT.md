@@ -37,10 +37,12 @@ This runs: `nodemon src/index.js` (auto-restarts on file changes)
 - **Environment Variables**: Add in Railway dashboard
 
 ### Render
-- **Build Command**: `npm install`
+- **Build Command**: `npm install` (or `npm run build` which runs `npm install`)
 - **Start Command**: `npm start`
 - **Environment**: Node
-- **Node Version**: 20.x
+- **Node Version**: 20.x or 22.x
+- **Root Directory**: (leave empty, or set to project root if needed)
+- **Important**: Make sure `package-lock.json` is committed to ensure consistent dependency installation
 
 ### Heroku
 - **Build Command**: (auto-detected, runs `npm install`)
