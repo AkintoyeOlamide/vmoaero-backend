@@ -10,11 +10,11 @@ const nodemailer = require('nodemailer');
 const app = express();
 
 // CORS Configuration
-// Allow all origins in development, restrict in production
 const corsOptions = {
-  origin: process.env.NODE_ENV === 'production' 
-    ? process.env.ALLOWED_ORIGINS?.split(',') || ['https://your-frontend-domain.com']
-    : true, // Allow all origins in development
+  // Allow all origins by default; restrict via ALLOWED_ORIGINS if provided
+  origin: process.env.ALLOWED_ORIGINS
+    ? process.env.ALLOWED_ORIGINS.split(',').map(o => o.trim())
+    : true,
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept', 'Origin'],
